@@ -1,0 +1,32 @@
+.iframe-container {
+    height: 656px;
+}
+
+.mobile-videomask{
+	padding:5%;
+	display:none;
+}
+
+.slider-container {
+    margin: 0 auto;
+    -moz-box-shadow: 0 -5px 15px 0 rgba(0,0,0,.05) inset;
+    -webkit-box-shadow: 0 -5px 15px 0 rgba(0,0,0,.05) inset;
+    box-shadow: 0 -5px 15px 0 rgba(0,0,0,.05) inset;
+}
+
+.slider {
+	padding: 0;
+	overflow: hidden;
+}
+
+.flexslider {
+    margin: 0;
+    background: none;
+    border: 0;
+    -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+.flexslider .slides > li {
+	position: relative;
+}

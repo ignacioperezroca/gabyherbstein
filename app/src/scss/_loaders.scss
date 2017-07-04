@@ -1,0 +1,85 @@
+// -------------------------
+// LOADERS & SPINNERS
+// -------------------------
+
+// Loader 01 ///////////////
+// .loader{position: absolute; z-index: 999; left: 0; top: 0; bottom: 0; right: 0; background-color: #fafafa; 
+//   img{position: fixed; left: 50%; top: 50%; @include transform(translate(-50%, -50%));}
+// }
+
+// <div class="loader" id="loader">
+//   <img src="images/ajax-loader.gif" alt="">
+// </div>
+
+// Loader 02 ///////////////
+// .loader {position: absolute; top: 0; left: 0; right: 0; bottom: 0; height: 100%; width: 100%; z-index: 8080;}
+// .loader-inner {position: absolute; top: 50%; left: 50%; @include transform(translate(-50%, -50%)); color: #fff;}
+// .loader-inner label {font-size: 20px; opacity: 0; display:inline-block; }
+// @include keyframes(lol) {
+//   0% {opacity: 0; transform: translateX(-300px);}
+//   33% {opacity: 1; transform: translateX(0px);}
+//   66% {opacity: 1; transform: translateX(0px);}
+//   100% {opacity: 0; transform: translateX(300px);}
+// }
+// .loader-inner label:nth-child(6) {-webkit-animation: lol 3s infinite ease-in-out; animation: lol 3s infinite ease-in-out;}
+// .loader-inner label:nth-child(5) {-webkit-animation: lol 3s 100ms infinite ease-in-out; animation: lol 3s 100ms infinite ease-in-out;}
+// .loader-inner label:nth-child(4) {-webkit-animation: lol 3s 200ms infinite ease-in-out; animation: lol 3s 200ms infinite ease-in-out;}
+// .loader-inner label:nth-child(3) {-webkit-animation: lol 3s 300ms infinite ease-in-out; animation: lol 3s 300ms infinite ease-in-out;}
+// .loader-inner label:nth-child(2) {-webkit-animation: lol 3s 400ms infinite ease-in-out; animation: lol 3s 400ms infinite ease-in-out;}
+// .loader-inner label:nth-child(1) {-webkit-animation: lol 3s 500ms infinite ease-in-out; animation: lol 3s 500ms infinite ease-in-out;}
+
+// <div class="loader">
+//   <div class="loader-inner"><label> ●</label> <label> ●</label> <label> ●</label> <label> ●</label> <label> ●</label> <label> ●</label></div>
+// </div>
+
+
+// Loader 03 ///////////////
+// .loader {position: fixed; top: 0; left: 0; right: 0; bottom: 0; height: 100%; width: 100%; z-index: 8080; overflow:hidden; background-color: #121212;} 
+// .loader-3d {left: 50%; top: 50%; @include transform(translate(-50%, -50%));}
+// .loader-3d, .loader-3d:before, .loader-3d:after {width: 200px; height: 40px; background: no-repeat; background-image: radial-gradient(closest-side, $secondary 100%, transparent), radial-gradient(closest-side, $secondary 100%, transparent); background-size: 20px 20px, 20px 20px; background-position: 0% center, 100% center; position: absolute; animation: slide 1.5s cubic-bezier(.5,0,.5,1) infinite, zoom ease-out .75s infinite alternate; content: ''; border-radius:50%;}
+// .loader-3d {animation-delay: .5s; }
+// .loader-3d:after {animation-delay: 1s; }
+
+// @keyframes slide {to {background-position: 100%, 0;} }
+// @keyframes zoom {to {background-size: 40px 40px, 10px 10px;} }
+// <div class="loader">
+//   <div class="loader-3d"></div>
+// </div>
+
+
+
+// Loader 04 ///////////////
+.loader {position: fixed; top: 0; left: 0; right: 0; bottom: 0; height: 100%; width: 100%; z-index: 8080; overflow:hidden; background-color: #121212;} 
+
+.loadbar {width: 0%; height: 5px; background: rgba(5, 5, 5, 0.9); box-shadow: 0px 0px 14px 1px #333; position: absolute; top: 0; left: 0; animation: flicker 5s infinite; overflow: hidden; }
+// .glow {width: 0%; height: 5px; border-radius: 20px; box-shadow: 0px 0px 60px 10px #000; position: absolute; bottom: -5px; animation: animation 5s infinite; }
+.percentage {position: absolute; top: 15px; right: 15px;}
+
+.sk-folding-cube {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 20px auto;
+  @include transform(rotateZ(45deg));
+}
+.sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  @include transform(scale(1.1));
+}
+.sk-folding-cube .sk-cube:before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #333; 
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both; animation: sk-foldCubeAngle 2.4s infinite linear both; -webkit-transform-origin: 100% 100%; -ms-transform-origin: 100% 100%; transform-origin: 100% 100%;
+} 
+.sk-folding-cube .sk-cube2 {@include transform(scale(1.1) rotateZ(90deg)); }
+.sk-folding-cube .sk-cube3 {@include transform(scale(1.1) rotateZ(180deg)); }
+.sk-folding-cube .sk-cube4 {@include transform(scale(1.1) rotateZ(270deg)); }
+.sk-folding-cube .sk-cube2:before {-webkit-animation-delay: 0.3s; animation-delay: 0.3s; }
+.sk-folding-cube .sk-cube3:before {-webkit-animation-delay: 0.6s; animation-delay: 0.6s; }
+.sk-folding-cube .sk-cube4:before {-webkit-animation-delay: 0.9s; animation-delay: 0.9s; }
+@-webkit-keyframes sk-foldCubeAngle {0%, 10% {@include transform(perspective(140px) rotateX(-180deg)); opacity: 0; } 25%, 75% {@include transform(perspective(140px) rotateX(0deg)); opacity: 1; } 90%, 100% {@include transform(perspective(140px) rotateY(180deg)); opacity: 0; } }
+@keyframes sk-foldCubeAngle {0%, 10% {@include transform(perspective(140px) rotateX(-180deg)); opacity: 0; } 25%, 75% {@include transform(perspective(140px) rotateX(0deg)); opacity: 1; } 90%, 100% {@include transform(perspective(140px) rotateY(180deg)); opacity: 0; } }
+
+
