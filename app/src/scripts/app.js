@@ -58,17 +58,17 @@ $(document).ready(function(){
       }
     }, stepTime);
   }
-  
+
   $('.sk-folding-cube').css('top' , ((winHeight / 2) - 40));
-    // $(window).on("load", function() {
-    //   console.log("imgs loaded");
-    //   $(".loader").fadeOut(600);
-    //   $('#page-content-wrapper').fadeIn(600);
-    // })
+    $(window).on("load", function() {
+      console.log("imgs loaded");
+      $(".loader").fadeOut(600);
+      $('#page-content-wrapper').fadeIn(600);
+    })
     // Fading Out Loadbar on Finised
-  setTimeout(function(){
-    $('.loader').fadeOut(300);
-  }, time);
+  // setTimeout(function(){
+    // $('.loader').fadeOut(300);
+  // }, time);
 
 
   // Sidebar Wrapper TOGGLE
@@ -101,6 +101,12 @@ $(document).ready(function(){
   $('.fullpage').click(function(){
     $('body').removeClass('project-dropdown--active');
     $('.dropdown-hover').fadeOut(300);
+  });
+
+  // Dropper
+  $('.dropper').click(function(){
+    $('.drop').slideToggle();
+    $('.dropper i').toggleClass('rotate180');
   });
 
 
@@ -234,19 +240,6 @@ $(document).ready(function(){
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
  // $('#video').on('loadstart', function (event) {
  //    console.log('loading added');
  //    $(this).addClass('loading');
@@ -285,9 +278,9 @@ $(document).ready(function(){
     // //Navigation
     // menu: '#menu',
     // lockAnchors: false,
-    // anchors:['firstPage', 'secondPage'],
+    // anchors:['section-00', 'section-01'],
     // navigation: true,
-    navigationPosition: 'right',
+    // navigationPosition: 'right',
     // navigationTooltips: ['firstSlide', 'secondSlide'],
     // showActiveTooltip: false,
     // slidesNavigation: false,
@@ -374,4 +367,3 @@ $(document).ready(function(){
   });
   
 });
-

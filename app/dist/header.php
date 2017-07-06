@@ -68,6 +68,21 @@
           <li><a href="./">Inicio</a></li>
           <li><a href="#">+ SÉ PARTE DEL PROYECTO</a></li>
           <li><a href="#">+ INFO</a></li>
+          <li><a href="#">ENG<i class="fa fa-angle-right"></i></a></li>
+          <li class="dropper">
+            <a href="#">
+              Secciones
+              <i class="fa fa-angle-up"></i>
+            </a>
+          </li>
+          <li class="drop" data-menuanchor='section-00'><a href="#section-00">Seccion 00</a></li>
+          <li class="drop" data-menuanchor='section-01'><a href="#section-01">Seccion 01</a></li>
+          <li class="drop" data-menuanchor='section-02'><a href="#section-02">Seccion 02</a></li>
+          <li class="drop" data-menuanchor='section-03'><a href="#section-03">Seccion 03</a></li>
+          <li class="drop" data-menuanchor='section-04'><a href="#section-04">Seccion 04</a></li>
+          <li class="drop" data-menuanchor='section-05'><a href="#section-05">Seccion 05</a></li>
+          <li class="drop" data-menuanchor='section-06'><a href="#section-06">Seccion 06</a></li>
+          <li class="drop" data-menuanchor='section-07'><a href="#section-07">Seccion 07</a></li>
         </ul>
         <div class="social-block">
           <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -133,4 +148,3 @@
           <!-- /.navbar-collapse -->
       </nav>
 
-  

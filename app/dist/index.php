@@ -9,13 +9,13 @@
     <div class="container-fluid">
       <div class="row">
         <div id="fullpage">
-          <div class="section section-00">
+          <div class="section section-00" data-anchor='section-00'>
             <div class="container-centered">
               <h1 class="section-title">CREER PARA VER</h1>
             </div>
             <div class="arrow-container moveSectionDown"></div>
           </div>
-          <div class="section section-01">
+          <div class="section section-01" data-anchor='section-01'>
             <div class="slide slider-01 slide-01">
               <div class="container-centered">
                 <h1 class="section-title">Gaby Herbstein</h1>
@@ -80,7 +80,7 @@
               </div>
             </div>
           </div>
-          <div class="section section-02">
+          <div class="section section-02" data-anchor='section-02'>
             <div class="slide slider-02 slide-01">
               <div class="container-centered">
                 <h1 class="section-title">CREO, LUEGO VEO</h1> 
@@ -103,18 +103,16 @@
               </div>
             </div>
           </div>
-          <div class="section section-03">
+          <div class="section section-03" data-anchor='section-03'>
             <div class="container-centered gray7">
               <h1 class="section-title">LOS MAESTROS</h1>
             </div>
-            <div class="arrow-container moveSectionDown">
-              <div class="arrow-row"></div>
-              <div class="arrow-down">
-                <div class="arrow"></div>
-              </div>
+            <div class="arrow-row"></div>
+            <div class="arrow-down">
+              <div class="arrow"></div>
             </div>
           </div>
-          <div class="section section-04">
+          <div class="section section-04" data-anchor='section-04'>
             <div class="slide slider-03 slide-01">
               <div class="container-centered">
                 <h1 class="section-title">SRI SRI RAVI SHANKAR</h1> 
@@ -229,21 +227,21 @@
               </div>
             </div>
           </div>
-          <div class="section section-05">
+          <div class="section section-05" data-anchor='section-05'>
             <div class="slide slider-04 slide-01">
               <div class="container-centered">
                 <h1 class="section-title">ADMOR DE MALTA</h1> 
               </div>
             </div>
           </div>
-          <div class="section section-06">
+          <div class="section section-06" data-anchor='section-06'>
             <div class="slide slider-05 slide-01">
               <div class="container-centered">
                 <h1 class="section-title">Padre Thomas</h1> 
               </div>
             </div>
           </div>
-          <div class="section section-07">
+          <div class="section section-07" data-anchor='section-07'>
             <div class="container-centered">
               <h1 class="section-title">PRÓXIMOS MAESTROS</h1> 
               <p>Recibí las novedades en tu e-mail</p>
@@ -293,4 +291,3 @@
   </div>
 
 <?php include 'footer.php'; ?>
-

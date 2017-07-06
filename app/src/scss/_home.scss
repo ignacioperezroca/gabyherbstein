@@ -432,6 +432,7 @@ footer{
     left: -20px;
     z-index: -1;
     overflow: hidden;
+    @include transition;
   }
   &.project-dropdown{
     .dropdown-container{
@@ -451,7 +452,7 @@ footer{
             color: #fff;
             font-family: 'akzidenzgroteskLt', sans-serif;
             letter-spacing: 1.8px;
-            font-size: 16px;
+            font-size: 18px;
             padding: 5px 10px;
             &:hover{
               background-color: #000;
@@ -470,7 +471,7 @@ footer{
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  // z-index: 9;
+  z-index: 9;
 }
 
 .project-dropdown--active{
@@ -480,12 +481,11 @@ footer{
   }
   .btn-group{
     .dropdown-overflow {
-      height: 110px;
+      height: 300px;
     }
     .dropdown-container{
       top: 50px;
       opacity: 1;
-      z-index: 1;
     }
     i.fa-angle-up{
       padding: 0px 0px 3px 0px;
@@ -587,5 +587,3 @@ footer{
     opacity: 1;
   }
 }
-
-

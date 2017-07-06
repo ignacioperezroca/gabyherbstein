@@ -137,13 +137,25 @@ nav{
     	margin-top: 21px;
 	    padding: 0;
 	    li {
-		    text-indent: 20px;
+        text-indent: 20px;
+        &.dropper{
+          i{
+            width: 50px;
+            @include transition;
+          }
+        }
+  			&.drop{
+  			  display: none;
+  			  text-indent: 20px;
+          float: left;
+          width: 50%;
+  			}
 		    a {
 			    display: block;
 	        font-size: 16px;
 			    color: #eee;
 			    font-family: $primary-Bk;
-          letter-spacing: 1.8px;
+	        letter-spacing: 1.8px;
 			    padding: 12px 0px 10px 15px;
 			    -webkit-text-decoration: none;
 			    text-decoration: none;
@@ -222,13 +234,22 @@ nav{
 		&.sidebar-toggle{
 			#sidebar-wrapper {
 		    width: 350px;
-			}
-		}
-	}
+      }
+    }
+    #sidebar-wrapper {
+      .sidebar-nav{
+        li {
+          &.drop{
+            text-indent: 40px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  
 }
 
 @media (min-width: 992px) {}
 @media (min-width: 1200px) {}
-
-
 
