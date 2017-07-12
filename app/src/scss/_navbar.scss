@@ -85,10 +85,10 @@ nav{
 			margin: 0;
 		    >li{
 		    	margin-left: 0px;
-	    	    border-right: 1px solid #9e9e9e;
+    	    border-right: 1px solid #9e9e9e;
 		    	&:nth-child(1){
 		    		margin-left: 0px;
-		    	    border-left: 1px solid #9e9e9e;
+	    	    border-left: 1px solid #9e9e9e;
 		    	}
 				a{
 				    font-size: 12px;
@@ -138,10 +138,14 @@ nav{
 	    padding: 0;
 	    li {
         text-indent: 20px;
+        &:hover{
+          .fa-angle-right{
+            margin-left: 5px;
+          }
+        }
         &.dropper{
           i{
             width: 50px;
-            @include transition;
           }
         }
   			&.drop{
@@ -150,6 +154,9 @@ nav{
           float: left;
           width: 50%;
   			}
+        i{
+          @include transition;
+        }
 		    a {
 			    display: block;
 	        font-size: 16px;
