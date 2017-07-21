@@ -181,6 +181,8 @@ footer{
 
 // HOME CONSTRUCTION
 .container-centered{
+  max-width: 1600px;
+  margin: 0 auto;
   position: relative;
   text-align: center;
   padding: 30% 10%;
@@ -311,13 +313,13 @@ footer{
   @include transform(translate(0%, -50%) rotate(45deg));
 }
 
-.fp-viewing-1-1,
-.fp-viewing-1-2,
-.fp-viewing-1-3,
-.fp-viewing-2-1,
-.fp-viewing-3,
-.fp-viewing-4-1,
-.fp-viewing-4-4{
+.fp-viewing-section-01-1,
+.fp-viewing-section-01-2,
+.fp-viewing-section-01-3,
+.fp-viewing-section-02-1,
+.fp-viewing-section-03,
+.fp-viewing-section-04-1,
+.fp-viewing-section-04-4{
   .arrow-container,
   .fp-controlArrow{
     border: solid black;
@@ -494,6 +496,22 @@ footer{
   }
 }
 
+.img-grid--effect{
+  @include transition;
+  &:hover{
+    box-shadow: 2px 8px 20px 0 rgba(31,32,68,.25);
+    @include transform(scale(1.01));
+  }
+}
+.cest-shadow{
+  width: 100%;
+  height: 90px;
+  position: absolute;
+  bottom: 0;
+  -webkit-box-shadow: 0 -30px 40px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 -30px 40px rgba(0, 0, 0, 0.25) inset;
+}
+
 // HOME RESPONSIVE
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -517,7 +535,7 @@ footer{
   .video-container{
     .video{
       &.loading {
-        background: #000 url(../images/loader.gif) center center no-repeat;
+        background: #000 url(../images/loader.svg) center center no-repeat;
       }
     }
   }
@@ -587,5 +605,4 @@ footer{
     opacity: 1;
   }
 }
-
 

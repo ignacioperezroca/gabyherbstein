@@ -3,7 +3,8 @@
   $metaDescription = '<meta name="description" content="Gaby Herbstein">';
 ?>
 <?php include 'header.php'; ?>
-  
+  <div id="demo" class="demo"></div>
+  <div class="cest-shadow"></div>
   <section class='fullpage'>
     <div class='dropdown-hover'></div>
     <div class="container-fluid">
@@ -15,7 +16,7 @@
             </div>
             <div class="arrow-container moveSectionDown"></div>
           </div>
-          <div class="section section-01" data-anchor='section-01'>
+          <div class="section section-01" data-anchor='section-01' data-percentage="80">
             <div class="slide slider-01 slide-01">
               <div class="container-centered">
                 <h1 class="section-title">Gaby Herbstein</h1>
@@ -204,17 +205,17 @@
                 <div class="margintop30"></div>
                 <div class="row row-grid">
                   <div class="col-xs-12 col-md-4">
-                    <img src="images/section-04--col-05-01.jpg" alt="" class="img-center">
+                    <img src="images/section-04--col-05-01.jpg" alt="" class="img-center img-grid--effect">
                   </div>
                   <div class="col-xs-12 col-md-4">
                     <div class="hidden-md-up margintop15"></div>
-                    <img src="images/section-04--col-05-02.jpg" alt="" class="img-center">
+                    <img src="images/section-04--col-05-02.jpg" alt="" class="img-center img-grid--effect">
                   </div>
                   <div class="col-xs-12 col-md-4">
                     <div class="hidden-md-up margintop15"></div>
-                    <img src="images/section-04--col-05-03.jpg" alt="" class="img-center">
+                    <img src="images/section-04--col-05-03.jpg" alt="" class="img-center img-grid--effect">
                     <div class="margintop15"></div>
-                    <img src="images/section-04--col-05-04.jpg" alt="" class="img-center">
+                    <img src="images/section-04--col-05-04.jpg" alt="" class="img-center img-grid--effect">
                   </div>
                 </div>
               </div>
@@ -254,10 +255,19 @@
                 </div>
                 <div id="success"></div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-primary btn-lg">ENVIAR</button>
+                  <button type="submit" id='btnSubmit' class="btn btn-primary btn-lg">ENVIAR</button>
                 </div>    
                 <div class="clearfix"></div>
               </form>              
+            </div>
+          </div>
+          <div class="section section-08" data-anchor='section-08'>
+            <div class="container-centered gray7">
+              <h1 class="section-title">Sé PARTE DEL PROYECTO</h1>
+              <div class="margintop30"></div>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+              </p>
             </div>
           </div>
         </div>        

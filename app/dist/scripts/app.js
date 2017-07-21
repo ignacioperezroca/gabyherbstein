@@ -333,7 +333,7 @@ $(document).ready(function(){
     sectionsColor : ['', ''],
     // paddingTop: '3em',
     // paddingBottom: '3em',
-    fixedElements: '.arrow-container , .pipo',
+    fixedElements: '.arrow-container , .cest-shadow',
     // responsiveWidth: 0,
     // responsiveHeight: 0,
     // responsiveSlides: false,
@@ -351,6 +351,7 @@ $(document).ready(function(){
     afterLoad: function(anchorLink, index){
       if(index == 2){
         $('.section-02').addClass('cest-active');
+        $('.section-02').addClass('cest-active');
       }
       if(index == 3){
         $('.section-03').addClass('cest-active');
@@ -366,4 +367,35 @@ $(document).ready(function(){
     // onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
   });
   
+});
+
+// // Add your code below this line!
+// var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+// var xhr = new XMLHttpRequest();
+// xhr.open("GET", requestURL, false);
+
+// // xhr.responseType = 'json';
+// xhr.send();
+
+// // Add your code above this line!
+
+// console.log(xhr.status);
+// console.log(xhr.statusText);
+
+
+function callAjax(){
+    var url = "http://localhost:1337/search/";
+    $.ajax({
+        url: url,  
+        success: function(data) {
+            $('.tfclear').append(data); 
+        },
+        error: function(err){
+            // throw error
+        }
+    });
+}
+
+$('.tfbutton').on('click', function(){
+     callAjax();
 });

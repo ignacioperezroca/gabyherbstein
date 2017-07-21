@@ -8,7 +8,7 @@ var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
-// const imagemin = require('gulp-imagemin');
+const imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var htmlmin = require('gulp-htmlmin');
 var connect = require('gulp-connect');
@@ -65,18 +65,18 @@ gulp.watch('app/src/scripts/*.js', function() {
 });
 
 // Minify Our Images
-// gulp.task('imagemin', function(){
-//   return gulp.src('app/src/images/**/*.+(png|jpg|jpeg|gif|svg)')
-//   // Caching images that ran through imagemin
-//   .pipe(cache(imagemin({
-//       interlaced: true
-//   })))
-//   .pipe(gulp.dest('app/dist/images'))
-// });
-// // Watch for IMG changes
-// gulp.watch('app/src/images/**/*.+(png|jpg|jpeg|gif|svg)', function() {
-//   gulp.run('imagemin');
-// });
+gulp.task('imagemin', function(){
+  return gulp.src('app/src/images/**/*.+(png|jpg|jpeg|gif|svg)')
+  // Caching images that ran through imagemin
+  .pipe(cache(imagemin({
+      interlaced: true
+  })))
+  .pipe(gulp.dest('app/dist/images'))
+});
+// Watch for IMG changes
+gulp.watch('app/src/images/**/*.+(png|jpg|jpeg|gif|svg)', function() {
+  gulp.run('imagemin');
+});
 
 // Copying fonts to Our Dist
 gulp.task('fonts', function() {
@@ -101,7 +101,7 @@ gulp.task('htmlReload', function () {
 
 
 // Default Gulp Tasks
-gulp.task('default', ['watch', 'sass', 'sass:watch', 'scripts', 'htmlmin', 'htmlReload', 'fonts'], function(){
+gulp.task('default', ['watch', 'sass', 'sass:watch', 'scripts', 'htmlmin', 'htmlReload', 'fonts' , 'imagemin'], function(){
   console.log('Ive finished Gulping! Thanks!');
 })
 

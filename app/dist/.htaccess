@@ -1,0 +1,3 @@
+RewriteEngine On
+
+ErrorDocument 404 http://thet.com.ar/clientes/temp/gaby-herbstein/404page.php

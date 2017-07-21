@@ -5,6 +5,7 @@
 
 input:focus, textarea:focus{
   border-bottom: 1px solid $primary !important;
+  box-shadow: 2px 8px 20px 0 rgba(31,32,68,.25);
 }
 #contactForm,
 #subscribeForm{
@@ -81,7 +82,7 @@ input:focus, textarea:focus{
   }
   /* Change Autocomplete styles in Chrome*/
   // color of form -->
-  input{color: #404040; padding: 11px 12px 5px; background: transparent;} select{color: #404040; option{color: #555 } } textarea{color: #404040; resize: none; min-height: 115px; background: transparent;}
+  input{color: #404040; padding: 11px 12px 5px; background: white;} select{color: #404040; option{color: #555 } } textarea{color: #404040; resize: none; min-height: 115px; background: transparent;}
   ::-webkit-input-placeholder {color: #404040; } :-moz-placeholder { /* Firefox 18- */ color: #404040; } ::-moz-placeholder {  /* Firefox 19+ */ color: #404040; } :-ms-input-placeholder {color: #404040; }
   input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus input:-webkit-autofill, textarea:-webkit-autofill, textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {
     border: 1px solid #eee;

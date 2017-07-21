@@ -30,7 +30,7 @@
     <script src="scripts/app.js"></script>
     <!-- Include js plugin -->
     <script src="scripts/jqBootstrapValidation.js"></script>
+    <script src="scripts/contact_me.js"></script>
 
   </body>
 </html>
-
