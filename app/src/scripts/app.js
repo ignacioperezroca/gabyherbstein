@@ -19,7 +19,6 @@ var video = [
 ];
 
 $(document).ready(function(){
-
   // Loader
   // Loader progressBar
   var width = 100, // width of a progress bar in percentage
@@ -52,24 +51,22 @@ $(document).ready(function(){
     var timer = setInterval(function() {
       current += increment;
       $(obj).text(current + "%");
-    //obj.innerHTML = current;
+      //obj.innerHTML = current;
       if (current == end) {
-          clearInterval(timer);
+        clearInterval(timer);
+
+        // Fading In DOM on Finised
+        $(".loader").fadeOut(600);
+        $('#page-content-wrapper').fadeIn(600);
+        console.log("timer ended");
+
       }
     }, stepTime);
   }
 
-  $('.sk-folding-cube').css('top' , ((winHeight / 2) - 40));
-    $(window).on("load", function() {
-      console.log("imgs loaded");
-      $(".loader").fadeOut(600);
-      $('#page-content-wrapper').fadeIn(600);
-    })
-    // Fading Out Loadbar on Finised
-  // setTimeout(function(){
-    // $('.loader').fadeOut(300);
-  // }, time);
-
+  $(window).on("load", function() {
+    console.log("window loaded");
+  })
 
   // Sidebar Wrapper TOGGLE
   $(".navbar-toggle").click(function(e) {
@@ -190,74 +187,6 @@ $(document).ready(function(){
     }, 600);
   });
 
-  $(document).keyup(function(e) {
-    if (e.keyCode == 27) { // escape key maps to keycode `27`
-      $('.video-livebox--container').fadeOut();
-      data_media = $('.video-livebox--container').attr('data-video');
-      console.log('pause video number' + ' ' + data_media);
-      setTimeout(function(){
-        console.log(video[data_media]);
-        video[data_media].pause();
-      }, 600);
-    }
-  });
-
-  $('.volume').click(function(){
-    $('.volume i').toggle();
-    var clickVol = (function clickVolume() { 
-      if (video[video_number].muted == true) {
-        console.log('audio unmute');
-        video[video_number].muted = false;
-      } else if (video[video_number].muted == false){
-        console.log('audio muted');
-        video[video_number].muted = true;
-      }
-    })();
-  });
-
-  $('.video').click(function(){
-    var clickPlay = (function clickVolume() { 
-      if (video[data_media].paused == true) {
-        console.log('video number ' + data_media + ' play');
-        video[data_media].play();
-        $('.play-stop').fadeIn();
-        $('.play-stop .fa-play').fadeIn();
-        setTimeout(function() {
-          $('.play-stop').fadeOut();
-          $('.play-stop .fa-play').fadeOut();
-        }, 300);
-      } else if (video[data_media].paused == false){
-        console.log('video number ' + data_media + ' pause');
-        video[data_media].pause();
-        $('.play-stop').fadeIn();
-        $('.play-stop .fa-pause').fadeIn();
-        setTimeout(function() {
-          $('.play-stop').fadeOut();
-          $('.play-stop .fa-pause').fadeOut();
-        }, 300);
-      }
-    })();
-  });
-
-
- // $('#video').on('loadstart', function (event) {
- //    console.log('loading added');
- //    $(this).addClass('loading');
- //  });
-
-  // $('.modal-video').on('shown.bs.modal', function (e) {
-  //   video_number = $(this).attr('data-video');
-  //   console.log('play video number' + ' ' + video_number);
-  //   video[video_number].play();
-  // });
-
-  // $('.modal-video').on('hidden.bs.modal', function (e) {
-  //   video_number = $(this).attr('data-video');
-  //   console.log('stop video number' + ' ' + video_number);
-  //   video[video_number].pause();
-  // });
-
-
   // CirclePointer
   $(".go-top--section").mouseenter(
     function() {
@@ -333,7 +262,7 @@ $(document).ready(function(){
     sectionsColor : ['', ''],
     // paddingTop: '3em',
     // paddingBottom: '3em',
-    fixedElements: '.arrow-container , .cest-shadow',
+    fixedElements: '.arrow-container , .cest-shadow , .main-button--container',
     // responsiveWidth: 0,
     // responsiveHeight: 0,
     // responsiveSlides: false,
@@ -349,11 +278,23 @@ $(document).ready(function(){
     // //events
     // onLeave: function(index, nextIndex, direction){},
     afterLoad: function(anchorLink, index){
+      if(index == 1){
+        data_media = 0;
+        video_number = 0;
+        video[data_media].play();
+        $('.main-button--container .play-stop .fa-pause').fadeToggle();
+        $('.main-button--container .play-stop .fa-play').fadeToggle();
+      }
       if(index == 2){
-        $('.section-02').addClass('cest-active');
+        data_media = 1;
+        video_number = 1;
+
         $('.section-02').addClass('cest-active');
       }
       if(index == 3){
+        data_media = 2;
+        video_number = 2;
+
         $('.section-03').addClass('cest-active');
       }
     },
@@ -368,6 +309,88 @@ $(document).ready(function(){
   });
   
 });
+
+
+// Video Controller
+var videoController = (function(){
+   
+  var replayVideo = function(){
+    if(video[video_number].ended){
+      video[video_number].play();
+      console.log('The has been replayed');
+    }
+  }
+
+  // Pause video when scape is touch on keyboard
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { // escape key maps to keycode `27`
+      // video[data_media].pause();
+    }
+  });
+
+  $('.seek-10').click(function(){
+    video[video_number].currentTime = video[video_number].currentTime - 10;
+    console.log(video[video_number].currentTime);
+    console.log('Video number' + video[video_number] + ' Seeked -10 secs!');
+  });
+
+  $('.volume').click(function(){
+    $('.volume i').toggle();
+    var clickVol = (function clickVolume() { 
+      if (video[video_number].muted == true) {
+        console.log('audio unmute');
+        video[video_number].muted = false;
+      } else if (video[video_number].muted == false){
+        console.log('audio muted');
+        video[video_number].muted = true;
+      }
+    })();
+  });
+
+  $('.video').click(function(){
+    var clickPlay = (function clickVolume() { 
+      if (video[data_media].paused == true) {
+        console.log('video number ' + data_media + ' play');
+        video[data_media].play();
+        $('.video-container .play-stop').fadeToggle();
+        $('.video-container .play-stop .fa-play , .main-button--container .play-stop .fa-play').fadeToggle();
+        $('.main-button--container .play-stop .fa-pause').fadeToggle();
+        setTimeout(function() {
+          $('.video-container .play-stop').fadeToggle();
+          $('.video-container .play-stop .fa-play').fadeToggle();
+        }, 300);
+      } else if (video[data_media].paused == false){
+        console.log('video number ' + data_media + ' pause');
+        video[data_media].pause();
+        $('.video-container .play-stop').fadeToggle();
+        $('.video-container .play-stop .fa-pause , .main-button--container .play-stop .fa-pause').fadeToggle();
+        $('.main-button--container .play-stop .fa-play').fadeToggle();
+        setTimeout(function() {
+          $('.video-container .play-stop').fadeToggle();
+          $('.video-container .play-stop .fa-pause').fadeToggle();
+        }, 300);
+      }
+    })();
+  });
+
+  $('.main-button--container .play-stop').click(function(){
+    var clickPlay = (function clickVolume() {   
+      if (video[data_media].paused == true) {
+        console.log('video number ' + data_media + ' play');
+        video[data_media].play();
+        $('.main-button--container .play-stop .fa-play').fadeToggle();
+        $('.main-button--container .play-stop .fa-pause').fadeToggle();
+      } else if (video[data_media].paused == false){
+        console.log('video number ' + data_media + ' pause');
+        video[data_media].pause();
+        $('.main-button--container .play-stop .fa-pause').fadeToggle();
+        $('.main-button--container .play-stop .fa-play').fadeToggle();
+      }
+    })();
+  });
+
+})();
+
 
 // // Add your code below this line!
 // var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
@@ -384,18 +407,20 @@ $(document).ready(function(){
 
 
 function callAjax(){
-    var url = "http://localhost:1337/search/";
-    $.ajax({
-        url: url,  
-        success: function(data) {
-            $('.tfclear').append(data); 
-        },
-        error: function(err){
-            // throw error
-        }
-    });
+  var url = "http://localhost:1337/search/";
+  $.ajax({
+    url: url,
+    success: function(data) {
+      $('.tfclear').append(data); 
+    },
+    error: function(err){
+      // throw error
+    }
+  });
 }
 
 $('.tfbutton').on('click', function(){
-     callAjax();
+   callAjax();
 });
+
+

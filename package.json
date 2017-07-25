@@ -1,5 +1,5 @@
 {
-  "name": "bold-studio",
+  "name": "Thet Studio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://ignacioperezroca@bitbucket.org/ignacioperezroca/gabyherbstein.git"
   },
-  "author": "Bold Studio",
+  "author": "Thet Studio",
   "license": "ISC",
   "bugs": {
     "url": "https://bitbucket.org/ignacioperezroca/gabyherbstein/issues"
