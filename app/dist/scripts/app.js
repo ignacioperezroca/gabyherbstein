@@ -18,6 +18,8 @@ var video = [
   document.getElementById("video02"),
 ];
 
+// $('section').css('max-height' , winHeight);
+
 $(document).ready(function(){
   // Loader
   // Loader progressBar
@@ -281,13 +283,18 @@ $(document).ready(function(){
       if(index == 1){
         data_media = 0;
         video_number = 0;
-        video[data_media].play();
+        // video[data_media].play();
+        console.log(anchorLink , index);
         $('.main-button--container .play-stop .fa-pause').fadeToggle();
         $('.main-button--container .play-stop .fa-play').fadeToggle();
       }
       if(index == 2){
         data_media = 1;
         video_number = 1;
+        video[data_media].play();
+        console.log(anchorLink , index);
+        $('.main-button--container .play-stop .fa-pause').fadeToggle();
+        $('.main-button--container .play-stop .fa-play').fadeToggle();
 
         $('.section-02').addClass('cest-active');
       }
@@ -422,5 +429,7 @@ function callAjax(){
 $('.tfbutton').on('click', function(){
    callAjax();
 });
+
+
 
 

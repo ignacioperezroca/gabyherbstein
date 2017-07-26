@@ -109,7 +109,8 @@ footer{
 .section-01{
   .slider-01{
     &.slide-01{
-      background-image: url(../images/section-01--col-01.jpg);
+      // background-image: url(../images/section-01--col-01.jpg);
+      background: black;
     }
     &.slide-02{
       // background-image: url(../images/section-01--col-01.jpg);
@@ -759,3 +760,5 @@ footer{
     opacity: 1;
   }
 }
+
+
