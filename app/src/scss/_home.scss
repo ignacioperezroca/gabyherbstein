@@ -148,10 +148,10 @@ footer{
       // background-image: url(../images/section-04--col-02.jpg);
     }
     &.slide-03{
-      background-image: url(../images/section-04--col-03.jpg);
+      // background-image: url(../images/section-04--col-03.jpg);
     }
     &.slide-04{
-      background-image: url(../images/section-04--col-04.jpg);
+      // background-image: url(../images/section-04--col-04.jpg);
     }
     &.slide-05{
       // background-image: url(../images/section-04--col-05.jpg);
@@ -191,20 +191,28 @@ footer{
   padding: 30% 10%;
   top: -20px;
   opacity: 0;
-  &.gray7{
-    .section-title,
-    h1,
-    p,
-    div{
-      color: #2c2c2c;
-    }
+}
+.absolute-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  // padding: 0px 0 70px;
+  z-index: 11;
+  @include transform(translate(-50%, -50%));
+}
+.gray7{
+  .section-title,
+  h1,
+  p,
+  div{
+    color: #2c2c2c;
   }
-  h1{
-    &.section-title{
-      color: #fff;
-      text-align: center;
-      text-transform: uppercase;
-    }
+}
+h1{
+  &.section-title{
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
   }
 }
 
@@ -316,6 +324,7 @@ footer{
   @include transform(translate(0%, -50%) rotate(45deg));
 }
 
+// White background sections
 .fp-viewing-section-01-1,
 .fp-viewing-section-01-2,
 .fp-viewing-section-01-3,
@@ -327,6 +336,20 @@ footer{
   .fp-controlArrow{
     border: solid black;
     border-width: 0 1px 1px 0;
+  }
+}
+// Video sections
+.fp-viewing-section-00,
+.fp-viewing-section-01-0{
+  .dark-overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    @include transition;
   }
 }
 .fp-viewing-section-01-1,
@@ -696,10 +719,10 @@ footer{
   }
   .container-centered{
     padding: 10% 11%;
-    h1{
-      &.section-title{
-        font-size: 4em;
-      }
+  }
+  h1{
+    &.section-title{
+      font-size: 4em;
     }
   }
   .fp-controlArrow {
@@ -751,12 +774,21 @@ footer{
 // ANIMATIONS
 //////////////////////////////////////////////////////////////////////////////////////////
 
-.container-centered{
+.container-centered,
+.load-section{
   @include transition;
+}
+.load-section{
+  margin-top: -40px;
+  opacity: 0;
 }
 .fp-completely{
   .container-centered{
     top: 0;
+    opacity: 1;
+  }
+  .load-section{
+    margin-top: 0;
     opacity: 1;
   }
 }

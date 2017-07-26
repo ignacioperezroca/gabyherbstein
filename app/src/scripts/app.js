@@ -16,11 +16,32 @@ var video = [
   document.getElementById("video00"),
   document.getElementById("video01"),
   document.getElementById("video02"),
+  document.getElementById("video03"),
+  document.getElementById("video04")
 ];
 
-// $('section').css('max-height' , winHeight);
+function animateValue(id, start, end, duration) {
+  var range = end - start,
+    current = start,
+    increment = end > start? 1 : -1,
+    stepTime = Math.abs(Math.floor(duration / range)),
+    obj = $(id);
+  var timer = setInterval(function() {
+    current += increment;
+    $(obj).text(current + "%");
+    //obj.innerHTML = current;
+    if (current == end) {
+      clearInterval(timer);
+    }
+  }, stepTime);
+}
 
-$(document).ready(function(){
+$(window).on("load", function() {
+  // Fading In DOM on Finised
+  $(".loader").fadeOut(600);
+  $('#page-content-wrapper').fadeIn(600);
+  console.log("timer ended");
+
   // Loader
   // Loader progressBar
   var width = 100, // width of a progress bar in percentage
@@ -42,33 +63,14 @@ $(document).ready(function(){
       start = 0,
       end = 100,
       durataion = time;
-      animateValue(PercentageID, start, end, durataion);
 
-  function animateValue(id, start, end, duration) {
-    var range = end - start,
-      current = start,
-      increment = end > start? 1 : -1,
-      stepTime = Math.abs(Math.floor(duration / range)),
-      obj = $(id);
-    var timer = setInterval(function() {
-      current += increment;
-      $(obj).text(current + "%");
-      //obj.innerHTML = current;
-      if (current == end) {
-        clearInterval(timer);
+  animateValue(PercentageID, start, end, durataion);
+  console.log("window loaded");
+});
 
-        // Fading In DOM on Finised
-        $(".loader").fadeOut(600);
-        $('#page-content-wrapper').fadeIn(600);
-        console.log("timer ended");
+$(document).ready(function(){
 
-      }
-    }, stepTime);
-  }
-
-  $(window).on("load", function() {
-    console.log("window loaded");
-  })
+  $('.video-container').css('max-height' , winHeight);
 
   // Sidebar Wrapper TOGGLE
   $(".navbar-toggle").click(function(e) {
@@ -283,7 +285,7 @@ $(document).ready(function(){
       if(index == 1){
         data_media = 0;
         video_number = 0;
-        // video[data_media].play();
+        video[data_media].play();
         console.log(anchorLink , index);
         $('.main-button--container .play-stop .fa-pause').fadeToggle();
         $('.main-button--container .play-stop .fa-play').fadeToggle();
@@ -299,19 +301,31 @@ $(document).ready(function(){
         $('.section-02').addClass('cest-active');
       }
       if(index == 3){
-        data_media = 2;
-        video_number = 2;
-
+        console.log(anchorLink , index);
         $('.section-03').addClass('cest-active');
       }
+      if(index == 4){
+        console.log(anchorLink , index);
+      }
+      if(index == 5){
+        data_media = 2;
+        video_number = 2;
+        console.log(anchorLink , index);
+      }
     },
-
     // easingcss3: 'cubic-bezier(0.575, 0.885, 0.520, 1.275)',
-
     // afterRender: function(){},
     // afterResize: function(){},
     // afterResponsive: function(isResponsive){},
-    // afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
+      console.log(anchorLink, index, slideAnchor, slideIndex);
+      if(index == 5 && slideAnchor == 2){
+        data_media = 2;
+        video_number = 2;
+        console.log(data_media, video_number);
+        video[data_media].play();
+      }
+    },
     // onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
   });
   
@@ -355,7 +369,7 @@ var videoController = (function(){
   });
 
   $('.video').click(function(){
-    var clickPlay = (function clickVolume() { 
+    var clickPlay = (function clickVolume() {
       if (video[data_media].paused == true) {
         console.log('video number ' + data_media + ' play');
         video[data_media].play();
