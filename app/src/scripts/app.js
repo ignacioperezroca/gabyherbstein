@@ -20,6 +20,26 @@ var video = [
   document.getElementById("video04")
 ];
 
+var playVideo = function(){
+  video[data_media].play();
+  console.log('Video ' + video[data_media] + ' is now playing');
+}
+var pauseVideo = function(){
+  video[data_media].pause();
+  console.log('Video ' + video[data_media] + ' is now paused');
+}
+var playButton = function(){
+  if (video[data_media].paused == true) {
+    console.log('video number ' + data_media + ' play');
+    $('.main-button--container .play-stop').addClass('playing');
+    playVideo();
+  } else if (video[data_media].paused == false){
+    console.log('video number ' + data_media + ' pause');
+    $('.main-button--container .play-stop').removeClass('playing');
+    pauseVideo();
+  }
+}
+
 function animateValue(id, start, end, duration) {
   var range = end - start,
     current = start,
@@ -40,7 +60,6 @@ $(window).on("load", function() {
   // Fading In DOM on Finised
   $(".loader").fadeOut(600);
   $('#page-content-wrapper').fadeIn(600);
-  console.log("timer ended");
 
   // Loader
   // Loader progressBar
@@ -67,6 +86,8 @@ $(window).on("load", function() {
   animateValue(PercentageID, start, end, durataion);
   console.log("window loaded");
 });
+
+$('#modal-event--01').modal('show');
 
 $(document).ready(function(){
 
@@ -138,7 +159,6 @@ $(document).ready(function(){
 
   // Slick Slider
   var activeSlick =  function(){
-    console.log('initiated');
     $('.slick-slider--01').slick({
       dots: false,
       lazyLoad: 'ondemand',
@@ -164,31 +184,6 @@ $(document).ready(function(){
     $('.current').html(slickCurrentSlide);
     console.log(currentGallery.location[slickCurrentSlide]);
     $('.title').html(currentGallery.location[slickCurrentSlide]);
-  });
-
-  
-  // video controls
-  $('.media-content').click(function(){
-    data_media = $(this).attr('data-media');
-    video_number = $('.video-livebox--container').attr('data-video');
-    $('.video-livebox--container[data-video = ' + data_media + ']').fadeIn();
-    console.log('play data media number' + ' ' + data_media);
-    
-
-    setTimeout(function(){
-      console.log(video[data_media]);
-      video[data_media].play();
-    }, 600);
-  });
-
-  $('.close-button').click(function(){
-    data_close = $(this).attr('data-close');
-    $('.video-livebox--container').fadeOut();
-    console.log('pause video number' + ' ' + data_close);
-    setTimeout(function(){
-      console.log(video[data_close]);
-      video[data_close].pause();
-    }, 600);
   });
 
   // CirclePointer
@@ -285,18 +280,15 @@ $(document).ready(function(){
       if(index == 1){
         data_media = 0;
         video_number = 0;
-        video[data_media].play();
+        playButton();
         console.log(anchorLink , index);
-        $('.main-button--container .play-stop .fa-pause').fadeToggle();
-        $('.main-button--container .play-stop .fa-play').fadeToggle();
       }
       if(index == 2){
         data_media = 1;
         video_number = 1;
-        video[data_media].play();
+        playButton();
         console.log(anchorLink , index);
-        $('.main-button--container .play-stop .fa-pause').fadeToggle();
-        $('.main-button--container .play-stop .fa-play').fadeToggle();
+        console.log('afterLoad');
 
         $('.section-02').addClass('cest-active');
       }
@@ -310,7 +302,7 @@ $(document).ready(function(){
       if(index == 5){
         data_media = 2;
         video_number = 2;
-        console.log(anchorLink , index);
+        playButton();   
       }
     },
     // easingcss3: 'cubic-bezier(0.575, 0.885, 0.520, 1.275)',
@@ -319,11 +311,26 @@ $(document).ready(function(){
     // afterResponsive: function(isResponsive){},
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
       console.log(anchorLink, index, slideAnchor, slideIndex);
+      if(index == 2 && slideAnchor == 0){
+        data_media = 1;
+        video_number = 1;
+        playButton();
+        console.log('afterSlideLoad');
+      }
+      if(index == 5 && slideAnchor == 1){
+        data_media = 2;
+        video_number = 2;
+        playButton();
+      }
       if(index == 5 && slideAnchor == 2){
         data_media = 2;
         video_number = 2;
-        console.log(data_media, video_number);
-        video[data_media].play();
+        playButton();
+      }
+      if(index == 5 && slideAnchor == 3){
+        data_media = 3;
+        video_number = 3;
+        playButton();
       }
     },
     // onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
@@ -368,46 +375,34 @@ var videoController = (function(){
     })();
   });
 
-  $('.video').click(function(){
-    var clickPlay = (function clickVolume() {
-      if (video[data_media].paused == true) {
-        console.log('video number ' + data_media + ' play');
-        video[data_media].play();
-        $('.video-container .play-stop').fadeToggle();
-        $('.video-container .play-stop .fa-play , .main-button--container .play-stop .fa-play').fadeToggle();
-        $('.main-button--container .play-stop .fa-pause').fadeToggle();
-        setTimeout(function() {
-          $('.video-container .play-stop').fadeToggle();
-          $('.video-container .play-stop .fa-play').fadeToggle();
-        }, 300);
-      } else if (video[data_media].paused == false){
-        console.log('video number ' + data_media + ' pause');
-        video[data_media].pause();
-        $('.video-container .play-stop').fadeToggle();
-        $('.video-container .play-stop .fa-pause , .main-button--container .play-stop .fa-pause').fadeToggle();
-        $('.main-button--container .play-stop .fa-play').fadeToggle();
-        setTimeout(function() {
-          $('.video-container .play-stop').fadeToggle();
-          $('.video-container .play-stop .fa-pause').fadeToggle();
-        }, 300);
-      }
-    })();
-  });
+  // $('.video').click(function(){
+  //   var clickPlay = (function clickVolume() {
+  //     if (video[data_media].paused == true) {
+  //       console.log('video number ' + data_media + ' play');
+  //       playVideo();
+  //       $('.video-container .play-stop').fadeToggle();
+  //       $('.video-container .play-stop .fa-play , .main-button--container .play-stop .fa-play').fadeToggle();
+  //       $('.main-button--container .play-stop .fa-pause').fadeToggle();
+  //       setTimeout(function() {
+  //         $('.video-container .play-stop').fadeToggle();
+  //         $('.video-container .play-stop .fa-play').fadeToggle();
+  //       }, 300);
+  //     } else if (video[data_media].paused == false){
+  //       console.log('video number ' + data_media + ' pause');
+  //       video[data_media].pause();
+  //       $('.video-container .play-stop').fadeToggle();
+  //       $('.video-container .play-stop .fa-pause , .main-button--container .play-stop .fa-pause').fadeToggle();
+  //       $('.main-button--container .play-stop .fa-play').fadeToggle();
+  //       setTimeout(function() {
+  //         $('.video-container .play-stop').fadeToggle();
+  //         $('.video-container .play-stop .fa-pause').fadeToggle();
+  //       }, 300);
+  //     }
+  //   })();
+  // });
 
   $('.main-button--container .play-stop').click(function(){
-    var clickPlay = (function clickVolume() {   
-      if (video[data_media].paused == true) {
-        console.log('video number ' + data_media + ' play');
-        video[data_media].play();
-        $('.main-button--container .play-stop .fa-play').fadeToggle();
-        $('.main-button--container .play-stop .fa-pause').fadeToggle();
-      } else if (video[data_media].paused == false){
-        console.log('video number ' + data_media + ' pause');
-        video[data_media].pause();
-        $('.main-button--container .play-stop .fa-pause').fadeToggle();
-        $('.main-button--container .play-stop .fa-play').fadeToggle();
-      }
-    })();
+    playButton();
   });
 
 })();
@@ -443,7 +438,6 @@ function callAjax(){
 $('.tfbutton').on('click', function(){
    callAjax();
 });
-
 
 
 

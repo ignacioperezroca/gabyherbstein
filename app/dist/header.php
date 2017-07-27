@@ -40,7 +40,7 @@
       ga('send', 'pageview');
   </script>
   </head>
-  <body >
+  <body>
     <!-- .wrapper -->
     <div id="wrapper" class="">
       <!-- loader css3 -->

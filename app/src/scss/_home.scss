@@ -149,8 +149,10 @@ footer{
     }
     &.slide-03{
       // background-image: url(../images/section-04--col-03.jpg);
+      background: black;
     }
     &.slide-04{
+      background: black;
       // background-image: url(../images/section-04--col-04.jpg);
     }
     &.slide-05{
@@ -340,17 +342,19 @@ h1{
 }
 // Video sections
 .fp-viewing-section-00,
-.fp-viewing-section-01-0{
-  .dark-overlay {
-    background-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    @include transition;
-  }
+.fp-viewing-section-01-0,
+.fp-viewing-section-04-2,
+.fp-viewing-section-04-3{
+}
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  @include transition;
 }
 .fp-viewing-section-01-1,
 .fp-viewing-section-01-2,
@@ -378,6 +382,9 @@ h1{
     width: 100%;
     max-width: 100%;
     cursor: pointer;
+    &.loading {
+      background: #000 url(../images/section-00--col-01.jpg) center center no-repeat;
+    }
   }
   .volume {
     width: 50px;
@@ -427,7 +434,6 @@ h1{
     }
   }
 }
-
 .main-button--container {
   width: 50px;
   height: 50px;
@@ -485,8 +491,16 @@ h1{
       color: #333;
       font-size: 1.5em;
     }
-    i:first-child{
+    i.fa-pause{
       display: none;
+    }
+    &.playing{
+      i.fa-play{
+        display: none;
+      }
+      i.fa-pause{
+        display: block;
+      }
     }
   }
   .seek-10,
@@ -690,6 +704,21 @@ h1{
   box-shadow: 0 -30px 40px rgba(0, 0, 0, 0.25) inset;
 }
 
+.modal-open{
+  .main-button--container {
+    display: none
+  }
+  .container-centered{
+    opacity: 1;
+    p{
+      color: #fff;
+    }
+  }
+  .modal-backdrop {
+    background-color: rgba(0, 0, 0, .9);
+  }
+}
+
 // HOME RESPONSIVE
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -792,5 +821,7 @@ h1{
     opacity: 1;
   }
 }
+
+
 
 
