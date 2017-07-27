@@ -66,7 +66,7 @@ input:focus, textarea:focus{
     button.btn.btn-primary.btn-lg{
       float: right;
       padding: 9px 20px;
-      background-color: $primary;
+      // background-color: $primary;
     }
   }
   .form-control {
@@ -76,6 +76,7 @@ input:focus, textarea:focus{
     border: none;
     border-bottom: 1px solid #c3c3c3;
     border-radius: 0;
+    width: 280px;
   }
   input:focus{
 
@@ -157,5 +158,27 @@ input:focus, textarea:focus{
     width: 50%
   }
 }
+
+
+#contactForm{
+  .form-container{
+    .form-group {
+      margin-bottom: 0;
+    }
+    .control-group,
+    .form-group{
+      display: inline-block;
+    }
+  }
+  .form-group button.btn.btn-primary.btn-lg{
+    // font-size: 1em;
+    float: none;
+    padding: 11px 20px;
+  }
+  input {
+    padding: 8px 12px;
+  }
+}
+
 
 
