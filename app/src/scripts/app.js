@@ -261,7 +261,7 @@ $(document).ready(function(){
     sectionsColor : ['', ''],
     // paddingTop: '3em',
     // paddingBottom: '3em',
-    fixedElements: '.arrow-container , .cest-shadow , .main-button--container',
+    fixedElements: '.arrow-container , .main-button--container',
     // responsiveWidth: 0,
     // responsiveHeight: 0,
     // responsiveSlides: false,
@@ -283,7 +283,7 @@ $(document).ready(function(){
         playButton();
         console.log(anchorLink , index);
       }
-      if(index == 2){
+      if(index == 3){
         data_media = 1;
         video_number = 1;
         playButton();
@@ -292,14 +292,14 @@ $(document).ready(function(){
 
         $('.section-02').addClass('cest-active');
       }
-      if(index == 3){
+      if(index == 4){
         console.log(anchorLink , index);
         $('.section-03').addClass('cest-active');
       }
-      if(index == 4){
+      if(index == 5){
         console.log(anchorLink , index);
       }
-      if(index == 5){
+      if(index == 6){
         data_media = 2;
         video_number = 2;
         playButton();   
@@ -311,23 +311,23 @@ $(document).ready(function(){
     // afterResponsive: function(isResponsive){},
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){
       console.log(anchorLink, index, slideAnchor, slideIndex);
-      if(index == 2 && slideAnchor == 0){
+      if(index == 3 && slideAnchor == 0){
         data_media = 1;
         video_number = 1;
         playButton();
         console.log('afterSlideLoad');
       }
-      if(index == 5 && slideAnchor == 1){
+      if(index == 6 && slideAnchor == 1){
         data_media = 2;
         video_number = 2;
         playButton();
       }
-      if(index == 5 && slideAnchor == 2){
+      if(index == 6 && slideAnchor == 2){
         data_media = 2;
         video_number = 2;
         playButton();
       }
-      if(index == 5 && slideAnchor == 3){
+      if(index == 6 && slideAnchor == 3){
         data_media = 3;
         video_number = 3;
         playButton();
@@ -438,6 +438,4 @@ function callAjax(){
 $('.tfbutton').on('click', function(){
    callAjax();
 });
-
-
 

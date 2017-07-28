@@ -184,6 +184,14 @@ footer{
   background-image: url(../images/section-07--col-01.jpg);
 }
 
+.section-09{
+  .slider-06{
+    &.slide-01{
+      background-image: url(../images/section-09--col-01.jpg);
+    }
+  }
+}
+
 // HOME CONSTRUCTION
 .container-centered{
   max-width: 1600px;
@@ -327,6 +335,8 @@ h1{
 }
 
 // White background sections
+.fp-viewing-section-000-1,
+.fp-viewing-section-000-2,
 .fp-viewing-section-01-1,
 .fp-viewing-section-01-2,
 .fp-viewing-section-01-3,
@@ -356,6 +366,10 @@ h1{
   z-index: 2;
   @include transition;
 }
+.fp-viewing-section-000-0,
+.fp-viewing-section-000-1,
+.fp-viewing-section-000-2,
+.fp-viewing-section-000-3,
 .fp-viewing-section-01-1,
 .fp-viewing-section-01-2,
 .fp-viewing-section-01-3,
@@ -369,8 +383,9 @@ h1{
 .fp-viewing-section-04-5,
 .fp-viewing-section-05-0,
 .fp-viewing-section-06-0,
-.fp-viewing-section-07-0,
-.fp-viewing-section-08-0{
+.fp-viewing-section-07,
+.fp-viewing-section-08,
+.fp-viewing-section-09{
   .main-button--container {
     right: -55px;
   }
@@ -378,6 +393,7 @@ h1{
 
 .video-container{
   position: relative;
+  overflow: hidden;
   .video{
     // display: none;
     width: 100%;
@@ -822,7 +838,3 @@ h1{
     opacity: 1;
   }
 }
-
-
-
-
