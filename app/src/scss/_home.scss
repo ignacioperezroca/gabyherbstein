@@ -37,6 +37,9 @@ p {
   font-family: $Crimson-BkI;
   margin: 0;
   /*font-family: $primary-BkI;**/
+  top: -20px;
+  opacity: 0;
+  @include transition;
 }
 ul, ol{
   padding: 0;
@@ -199,8 +202,8 @@ footer{
   position: relative;
   text-align: center;
   padding: 30% 10%;
-  top: -20px;
-  opacity: 0;
+  // top: -20px;
+  // opacity: 0;
 }
 .absolute-title {
   position: absolute;
@@ -223,7 +226,16 @@ h1{
     color: #fff;
     text-align: center;
     text-transform: uppercase;
+    position: relative;
+    top: -20px;
+    opacity: 0;
+    @include transition;
   }
+}
+.location{
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 10px;
 }
 
 // Navbar Right
@@ -734,6 +746,11 @@ h1{
   .modal-backdrop {
     background-color: rgba(0, 0, 0, .9);
   }
+  h1.section-title,
+  p{
+    top: 0px;
+    opacity: 1;
+  }
 }
 
 // HOME RESPONSIVE
@@ -819,22 +836,22 @@ h1{
 
 // ANIMATIONS
 //////////////////////////////////////////////////////////////////////////////////////////
-
-.container-centered,
 .load-section{
-  @include transition;
-}
-.load-section{
-  margin-top: -40px;
+  position: relative;
+  top: -20px;
   opacity: 0;
+  @include transition;
+  @for $i from 1 through 7 {
+      &:nth-child(#{$i}) { 
+       @include transition-delay(0.15s * $i); 
+      }
+  }
 }
 .fp-completely{
-  .container-centered{
+  .load-section{
     top: 0;
     opacity: 1;
   }
-  .load-section{
-    margin-top: 0;
-    opacity: 1;
-  }
 }
+
+

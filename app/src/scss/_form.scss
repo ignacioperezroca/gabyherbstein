@@ -4,9 +4,13 @@
 // FORM CONSTRUCTION
 
 input:focus, textarea:focus{
-  border-bottom: 1px solid $primary !important;
-  box-shadow: 2px 8px 20px 0 rgba(31,32,68,.25);
+  // border-bottom: 1px solid $primary !important;
+  // border: 1px solid $primary !important;
+  // box-shadow: 2px 8px 20px 0 rgba(31,32,68,.25);
 }
+.btn{font-size: 19px !important; font-family: $primary-Md; letter-spacing: 5px; line-height: 0.9;}
+input{font-family: $Crimson-BkI; font-size: 17px !important;}
+
 #contactForm,
 #subscribeForm{
   .text-danger, .help-block {
@@ -74,9 +78,13 @@ input:focus, textarea:focus{
     background-image: none;
     box-shadow: none;
     border: none;
-    border-bottom: 1px solid #c3c3c3;
+    border: 1px solid #c3c3c3;
     border-radius: 0;
     width: 160px;
+    @include transition;
+    &:focus{
+      border: 1px solid $primary;
+    }
   }
   input:focus{
 
