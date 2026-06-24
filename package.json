@@ -1,0 +1,9 @@
+{
+  "name": "gabyherbstein",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Modernized static entry for the Gaby Herbstein legacy project.",
+  "scripts": {
+    "vercel-build": "echo \"Static site ready\""
+  }
+}
