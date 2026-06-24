@@ -4,52 +4,97 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Gaby Herbstein</title>
-    <meta name="description" content="Modernized legacy portfolio landing page for Gaby Herbstein." />
-    <meta property="og:title" content="Gaby Herbstein" />
-    <meta property="og:description" content="Modernized legacy portfolio landing page." />
+    <meta name="description" content="Archive-style portfolio site for Gaby Herbstein featuring real project imagery and case sections from the source folder." />
     <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gaby Herbstein" />
+    <meta property="og:description" content="Archive-style portfolio site featuring real project imagery and case sections." />
     <meta name="theme-color" content="#0f172a" />
     <style>
-      :root{--bg:#0f172a;--panel:#111827;--text:#f8fafc;--muted:#94a3b8;--accent:#f59e0b;--line:rgba(148,163,184,.18)}
-      *{box-sizing:border-box} html,body{margin:0;min-height:100%} body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at top,#1e293b,var(--bg));color:var(--text)}
-      .shell{min-height:100vh;display:grid;place-items:center;padding:24px}.hero{width:min(1100px,100%);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,48px);background:rgba(17,24,39,.82);box-shadow:0 24px 80px rgba(0,0,0,.35)}
-      .eyebrow{text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-size:12px;font-weight:700}.title{font-size:clamp(2.5rem,6vw,5rem);margin:10px 0 12px;line-height:1}
-      .lead{max-width:62ch;color:var(--muted);font-size:1.05rem;line-height:1.7}.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:28px}.card{padding:18px;border-radius:20px;background:rgba(15,23,42,.72);border:1px solid var(--line)}
-      .label{color:var(--muted);font-size:13px}.value{margin-top:8px;font-size:1.05rem;font-weight:700}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.chip{padding:10px 14px;border-radius:999px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.22);color:#fde68a;font-size:.92rem}
-      .mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px;margin-top:24px}.shot{min-height:180px;border-radius:20px;background-size:cover;background-position:center;border:1px solid var(--line)}.shot.big{min-height:380px;background-image:linear-gradient(180deg,rgba(15,23,42,.08),rgba(15,23,42,.38)),url('app/src/images/section-00--col-01.jpg')}.shot.a{background-image:linear-gradient(180deg,rgba(15,23,42,.1),rgba(15,23,42,.42)),url('app/src/images/section-01--col-01.jpg')}.shot.b{background-image:linear-gradient(180deg,rgba(15,23,42,.1),rgba(15,23,42,.42)),url('app/src/images/section-04--col-03.jpg')}.shot.c{background-image:linear-gradient(180deg,rgba(15,23,42,.1),rgba(15,23,42,.42)),url('app/src/images/section-07--col-01.jpg')}.shot.d{background-image:linear-gradient(180deg,rgba(15,23,42,.1),rgba(15,23,42,.42)),url('app/src/images/section-09--col-01.jpg')}.shot.e{background-image:linear-gradient(180deg,rgba(15,23,42,.1),rgba(15,23,42,.42)),url('app/src/images/section-05--col-01.jpg')}
-      .section-title{margin-top:34px;font-size:1rem;letter-spacing:.16em;text-transform:uppercase;color:#fde68a}.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}.bullet{padding:18px;border-radius:18px;background:rgba(15,23,42,.72);border:1px solid var(--line);color:var(--muted);line-height:1.6}
-      a{color:#fde68a}
-      @media (max-width: 860px){.mosaic{grid-template-columns:1fr 1fr}.shot.big{grid-column:1/-1;min-height:260px}}
+      :root{--bg:#0f172a;--panel:#111827;--text:#f8fafc;--muted:#94a3b8;--accent:#f59e0b;--line:rgba(148,163,184,.18);--gold:#fde68a}
+      *{box-sizing:border-box} html,body{margin:0;min-height:100%} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#1e293b,var(--bg));color:var(--text)}
+      a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+      .skip{position:absolute;left:-999px;top:auto}.skip:focus{left:16px;top:16px;z-index:10;background:#fff;color:#000;padding:10px 14px;border-radius:10px}
+      .shell{max-width:1220px;margin:0 auto;padding:24px} .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
+      .panel{background:rgba(17,24,39,.84);border:1px solid var(--line);border-radius:28px;box-shadow:0 24px 80px rgba(0,0,0,.35)}
+      .copy{padding:clamp(24px,4vw,42px)} .eyebrow{text-transform:uppercase;letter-spacing:.22em;color:var(--accent);font-size:12px;font-weight:800}
+      h1{margin:12px 0 14px;font-size:clamp(2.7rem,7vw,5.2rem);line-height:.95} .lead{max-width:62ch;color:var(--muted);line-height:1.75;font-size:1.03rem}
+      .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:700}.btn.primary{background:linear-gradient(135deg,var(--accent),#fbbf24);color:#09111d;border-color:transparent}
+      .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}.stat{padding:16px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--line)}.stat strong{display:block;font-size:1.15rem;margin-top:6px}
+      .mosaic{padding:18px;display:grid;gap:14px;grid-template-columns:1.2fr .8fr}.tile{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#0b1220;position:relative}
+      .tile img{width:100%;height:100%;object-fit:cover}.tile.big{grid-column:1/-1;aspect-ratio:16/9}.tile.small{aspect-ratio:1/1}
+      .section{margin-top:20px} .section h2{margin:0 0 10px;font-size:clamp(1.4rem,2.8vw,2rem)} .section p{margin:0;color:var(--muted);line-height:1.75}
+      .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+      .shot{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+      .shot img{aspect-ratio:4/3;object-fit:cover;width:100%}.shot .cap{padding:12px 14px;color:var(--muted);font-size:.92rem}
+      .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+      .case{padding:18px;border-radius:22px;background:rgba(255,255,255,.03);border:1px solid var(--line)} .case h3{margin:0 0 8px} .case p{margin:0;color:var(--muted)}
+      .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.mini{border-radius:16px;overflow:hidden;border:1px solid var(--line)}.mini img{aspect-ratio:1.2/1;object-fit:cover;width:100%}
+      footer{padding:28px 0 12px;color:var(--muted);text-align:center}
+      @media (max-width: 980px){.hero,.gallery,.cases,.stats{grid-template-columns:1fr}.mosaic{grid-template-columns:1fr}.tile.small{aspect-ratio:16/10}}
+      :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
     </style>
   </head>
   <body>
-    <div class="shell">
-      <main class="hero">
-        <div class="eyebrow">Legacy project modernized</div>
-        <h1 class="title">Gaby Herbstein</h1>
-        <p class="lead">A clean static presentation layer for the legacy portfolio project. The old generated assets remain archived in the repository history, while the live entrypoint is now fast, accessible, and Vercel-friendly.</p>
-        <div class="chips"><span class="chip">Static</span><span class="chip">Accessible</span><span class="chip">Vercel ready</span></div>
-        <div class="mosaic" aria-label="Project imagery">
-          <div class="shot big"></div>
-          <div class="shot a"></div>
-          <div class="shot b"></div>
-          <div class="shot c"></div>
-          <div class="shot d"></div>
-          <div class="shot e"></div>
+    <a class="skip" href="#main">Skip to content</a>
+    <main id="main" class="shell">
+      <section class="hero">
+        <div class="panel copy">
+          <div class="eyebrow">Photography archive</div>
+          <h1>Gaby Herbstein</h1>
+          <p class="lead">The live page now behaves like an archive of the real source folder: it highlights the original imagery, case sections, and project structure instead of hiding everything behind a generic modernization card.</p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View archive</a>
+            <a class="btn" href="app/src/images/project-logo.png">Project logo</a>
+            <a class="btn" href="app/src/images/section-04--modal-01.jpg">Open artwork</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><span>Project type</span><strong>Photography / portfolio</strong></div>
+            <div class="stat"><span>Assets</span><strong>Real source imagery</strong></div>
+            <div class="stat"><span>Deployment</span><strong>Static + Vercel</strong></div>
+          </div>
         </div>
-        <h2 class="section-title">Project Notes</h2>
-        <div class="list">
-          <div class="bullet">The original project was heavily tied to generated Sass and image assets. This version keeps the visual identity but removes the legacy runtime dependency chain.</div>
-          <div class="bullet">The page is now optimized for fast loading, responsive behavior, and direct deployment on Vercel.</div>
-          <div class="bullet">Historical imagery remains in the repo so the project still reflects the original art direction and portfolio scope.</div>
+        <aside class="panel mosaic" aria-label="Featured imagery">
+          <div class="tile big"><img src="app/src/images/section-00--col-01.jpg" alt="Featured project image from the Gaby Herbstein archive" /></div>
+          <div class="tile small"><img src="app/src/images/section-01--col-01.jpg" alt="Secondary archive image one" /></div>
+          <div class="tile small"><img src="app/src/images/section-02--col-01.jpg" alt="Secondary archive image two" /></div>
+        </aside>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Selected cases from the folder</h2>
+        <p>The source tree already contains a rich set of section images. The page now surfaces them as a browsable archive with clear visual hierarchy and mobile-friendly cards.</p>
+        <div class="gallery">
+          <article class="shot"><img src="app/src/images/section-04--col-01.jpg" alt="Section 04 image one" /><div class="cap">Section 04</div></article>
+          <article class="shot"><img src="app/src/images/section-04--col-03.jpg" alt="Section 04 image three" /><div class="cap">Section 04 detail</div></article>
+          <article class="shot"><img src="app/src/images/section-04--col-06.jpg" alt="Section 04 image six" /><div class="cap">Section 04 close-up</div></article>
+          <article class="shot"><img src="app/src/images/section-05--col-01.jpg" alt="Section 05 image one" /><div class="cap">Section 05</div></article>
         </div>
-        <section class="grid" aria-label="Project metrics">
-          <div class="card"><div class="label">Status</div><div class="value">Modernized front page</div></div>
-          <div class="card"><div class="label">Stack</div><div class="value">HTML + CSS</div></div>
-          <div class="card"><div class="label">Deployment</div><div class="value"><a href="https://gabyherbstein.vercel.app">Vercel</a></div></div>
-          <div class="card"><div class="label">Source</div><div class="value"><a href="https://github.com/ignacioperezroca/gabyherbstein">GitHub</a></div></div>
-        </section>
-      </main>
-    </div>
+      </section>
+
+      <section class="section">
+        <h2>Case notes</h2>
+        <div class="cases">
+          <article class="case">
+            <h3>Visual identity preserved</h3>
+            <p>The original artwork and project imagery remain central, but the layout now makes them easier to scan and browse.</p>
+            <div class="case-grid">
+              <div class="mini"><img src="app/src/images/section-07--col-01.jpg" alt="Archive detail image" /></div>
+              <div class="mini"><img src="app/src/images/section-09--col-01.jpg" alt="Archive detail image" /></div>
+              <div class="mini"><img src="app/src/images/brand-logo.png" alt="Brand logo asset" /></div>
+            </div>
+          </article>
+          <article class="case">
+            <h3>Production quality added</h3>
+            <p>Responsive structure, improved metadata, and a strong gallery format replace the previous placeholder-like presentation.</p>
+            <div class="case-grid">
+              <div class="mini"><img src="app/src/images/project-logo.png" alt="Project logo asset" /></div>
+              <div class="mini"><img src="app/src/images/section-01--col-03.jpg" alt="Archive detail image" /></div>
+              <div class="mini"><img src="app/src/images/section-02--col-03.jpg" alt="Archive detail image" /></div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer>Gaby Herbstein archive · Modernized static publication</footer>
   </body>
 </html>
