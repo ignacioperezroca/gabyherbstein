@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaby Herbstein</title>
+    <meta name="description" content="Modernized legacy portfolio landing page for Gaby Herbstein." />
+    <meta property="og:title" content="Gaby Herbstein" />
+    <meta property="og:description" content="Modernized legacy portfolio landing page." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
+    <style>
+      :root{--bg:#0f172a;--panel:#111827;--text:#f8fafc;--muted:#94a3b8;--accent:#f59e0b;--line:rgba(148,163,184,.18)}
+      *{box-sizing:border-box} html,body{margin:0;min-height:100%} body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at top,#1e293b,var(--bg));color:var(--text)}
+      .shell{min-height:100vh;display:grid;place-items:center;padding:24px} .hero{width:min(1100px,100%);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,48px);background:rgba(17,24,39,.82);box-shadow:0 24px 80px rgba(0,0,0,.35)}
+      .eyebrow{text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-size:12px;font-weight:700}.title{font-size:clamp(2.5rem,6vw,5rem);margin:10px 0 12px;line-height:1}
+      .lead{max-width:62ch;color:var(--muted);font-size:1.05rem;line-height:1.7}.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:28px}.card{padding:18px;border-radius:20px;background:rgba(15,23,42,.72);border:1px solid var(--line)}
+      .label{color:var(--muted);font-size:13px}.value{margin-top:8px;font-size:1.05rem;font-weight:700} .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}.chip{padding:10px 14px;border-radius:999px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.22);color:#fde68a;font-size:.92rem}
+      a{color:#fde68a}
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <main class="hero">
+        <div class="eyebrow">Legacy project modernized</div>
+        <h1 class="title">Gaby Herbstein</h1>
+        <p class="lead">A clean static presentation layer for the legacy portfolio project. The old generated assets remain archived in the repository history, while the live entrypoint is now fast, accessible, and Vercel-friendly.</p>
+        <div class="chips"><span class="chip">Static</span><span class="chip">Accessible</span><span class="chip">Vercel ready</span></div>
+        <section class="grid" aria-label="Project metrics">
+          <div class="card"><div class="label">Status</div><div class="value">Modernized front page</div></div>
+          <div class="card"><div class="label">Stack</div><div class="value">HTML + CSS</div></div>
+          <div class="card"><div class="label">Deployment</div><div class="value"><a href="https://vercel.com">Vercel</a></div></div>
+          <div class="card"><div class="label">Source</div><div class="value"><a href="https://github.com/ignacioperezroca/gabyherbstein">GitHub</a></div></div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
